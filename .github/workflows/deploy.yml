@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #     - run: npm ci
+  #     - run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: |
+            if cd /root/apps/images.hasanjoldic.com; then git pull; 
+            else git clone git@github.com:hasanjoldic/images.hasanjoldic.com.git /root/apps/images.hasanjoldic.com; fi
+            cd /root/apps/images.hasanjoldic.com && ./scripts/start.sh
+          host: images.hasanjoldic.com
+          username: root
+          privateKey: ${{ secrets.HASAN_JOLDIC_COM_PRIVATE_KEY }}

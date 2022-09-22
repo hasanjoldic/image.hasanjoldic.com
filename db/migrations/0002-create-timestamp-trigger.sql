@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION timestamp_trigger() 
+RETURNS trigger AS
+$$
+BEGIN
+  NEW.updated_at := CURRENT_TIMESTAMP;
+  RETURN NEW;
+END;
+$$
+LANGUAGE plpgsql VOLATILE;

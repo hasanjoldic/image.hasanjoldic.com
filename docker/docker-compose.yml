@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: ./backend/Dockerfile
+    image: images.hasanjoldic.com-backend
+    container_name: images.hasanjoldic.com-backend
+    restart: always
+    networks:
+      - images.hasanjoldic.com-proxy
+    env_file:
+      - ../.env
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: ./frontend/Dockerfile
+    image: images.hasanjoldic.com-frontend
+    container_name: images.hasanjoldic.com-frontend
+    restart: always
+    networks:
+      - images.hasanjoldic.com-proxy
+    command: nginx -g 'daemon off;'
+    env_file:
+      - ../.env
+
+  proxy:
+    image: nginx
+    container_name: images.hasanjoldic.com-proxy
+    restart: always
+    networks:
+      - images.hasanjoldic.com-proxy
+    ports:
+      - 3040:80
+    volumes:
+      - ../nginx/templates:/etc/nginx/templates
+    env_file:
+      - ../.env
+
+networks:
+  images.hasanjoldic.com-proxy:
+    name: images.hasanjoldic.com-proxy

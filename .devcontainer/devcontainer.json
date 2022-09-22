@@ -1,0 +1,30 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/typescript-node
+{
+  "name": "images.hasanjoldic.com",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "naumovs.color-highlight", // Highlight web colors in your editor
+        "esbenp.prettier-vscode", // Code formatter using prettier
+        "vscode-icons-team.vscode-icons", // Icons for Visual Studio Code
+        "wesbos.theme-cobalt2" // 🔥 Official theme by Wes Bos.
+      ],
+      "settings": {
+        "workbench.colorTheme": "Cobalt2" // "wesbos.theme-cobalt2" // 🔥 Official theme by Wes Bos.
+      }
+    }
+  },
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+  "initializeCommand": "ssh-add ~/.ssh/*_rsa"
+}

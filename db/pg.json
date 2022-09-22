@@ -1,0 +1,14 @@
+{
+  "client":"pg",
+  "connection": {
+    "host": "db.hasanjoldic.com",
+    "port": 3040,
+    "user": "postgres",
+    "password": "fa0b01270b8539ab11a3de052f89dc2645700b183627148bfc620b1ee20ce7f2",
+    "database" : "postgres"
+  },
+  "tableNameCasing": "pascal",
+  "excludedTables": [
+    "public.migrations" 
+  ]
+}

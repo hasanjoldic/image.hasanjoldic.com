@@ -1,0 +1,9 @@
+.env
+
+node_modules
+.pnpm-store
+lerna-debug.log
+
+dist
+
+.DS_Store

@@ -1,0 +1,13 @@
+{
+  "name": "@images.hasanjoldic.com/db",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {},
+  "author": "Hasan Joldic <work@hasanjoldic.com> (https://hasanjoldic.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "pg": "^8.8.0",
+    "postgres-migrations": "^5.3.0"
+  }
+}
