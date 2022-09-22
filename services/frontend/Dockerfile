@@ -14,6 +14,6 @@ FROM nginx:alpine AS runner
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
-COPY --from=builder /app/frontend/dist/ ./
+COPY --from=builder /app/services/frontend/dist/ ./
 
 CMD ["nginx", "-g", "daemon off;"]
